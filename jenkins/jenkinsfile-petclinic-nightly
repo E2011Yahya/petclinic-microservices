@@ -7,8 +7,8 @@ pipeline {
         APP_REPO_NAME="e2011yahya/${APP_NAME}-app-dev"
         AWS_ACCOUNT_ID=sh(script:'export PATH="$PATH:/usr/local/bin" && aws sts get-caller-identity --query Account --output text', returnStdout:true).trim()
         AWS_REGION="us-east-1"
-        ECR_REGISTRY="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
-        CFN_KEYPAIR="call-${APP_NAME}-dev-${BUILD_NUMBER}.key"
+        ECR_REGISTRY="089319708029.dkr.ecr.us-east-1.amazonaws.com"
+        CFN_KEYPAIR="e2011yahya-${APP_NAME}-dev-${BUILD_NUMBER}.key"
         CFN_TEMPLATE="./infrastructure/docker-swarm-infrastructure-cfn-template.yml"
         ANSIBLE_PRIVATE_KEY_FILE="${WORKSPACE}/${CFN_KEYPAIR}"
         ANSIBLE_HOST_KEY_CHECKING="False"
